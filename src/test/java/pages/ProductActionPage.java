@@ -9,11 +9,13 @@ import java.time.Duration;
 import static support.Commands.*;
 import static support.Utils.*;
 
-public class AddProductPage extends RunCucumber {
+public class ProductActionPage extends RunCucumber {
 
     private final By backToProducts = By.id("back-to-products");
     private final By addToCart = By.className("btn_inventory");
+    private final By removeFromCart = By.className("cart_button");
     private final By cartBadge = By.className("shopping_cart_badge");
+    private final By cartIcon = By.id("shopping_cart_container");
 
     public void onHomePage() {
         String getHomePage = getDriver().getCurrentUrl();
@@ -33,4 +35,17 @@ public class AddProductPage extends RunCucumber {
     public void validateCart(){
         waitElementBeVisible(cartBadge, Duration.ofMillis(5000));
     }
+
+    public void clickCartIcon(){
+        clickElement(cartIcon);
+    }
+
+    public void clickOnRemoveFromCart(){
+        clickElement(removeFromCart);
+    }
+
+    public void checkCartIsEmpty(){
+        checkCart(removeFromCart);
+    }
+
 }

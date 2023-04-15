@@ -16,12 +16,7 @@ Feature: Login
 
 
 #
-#  @remove-product
-#  Scenario: User removes a product from the cart
-#    Given I am on the home page
-#    When I click the cart icon
-#    And I click the remove button next to the product in the cart
-#    Then the product should be removed from the cart
+
 #
 #  @sort-product
 #  Scenario Outline: User sorts products by: <name>
