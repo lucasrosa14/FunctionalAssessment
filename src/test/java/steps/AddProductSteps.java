@@ -13,6 +13,7 @@ public class AddProductSteps {
 
     @Given("^I am logged in with username \"([^\"]*)\" and password \"([^\"]*)\"$")
     public void i_am_logged_in_with_username_and_password(String email, String pass){
+        loginPage.accessAplication();
         loginPage.fillEmail(email);
         loginPage.fillPassword(pass);
         loginPage.clickLogin();
