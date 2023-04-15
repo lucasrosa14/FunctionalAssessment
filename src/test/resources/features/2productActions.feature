@@ -1,6 +1,6 @@
 # language: en
 
-@product-actions
+@fullTest
 Feature: Add Product to Cart
 
 
