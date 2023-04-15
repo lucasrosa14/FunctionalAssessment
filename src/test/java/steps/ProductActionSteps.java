@@ -1,10 +1,13 @@
 package steps;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.LoginPage;
 import pages.ProductActionPage;
+import support.ScreenshotUtils;
 
 public class ProductActionSteps {
 
@@ -53,5 +56,9 @@ public class ProductActionSteps {
         productActionPage.checkCartIsEmpty();
     }
 
+    @After
+    public static void afterScenario(Scenario scenario){
+        ScreenshotUtils.addScreenshotOnScenario(scenario);
+    }
 
 }

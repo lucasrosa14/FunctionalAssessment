@@ -1,11 +1,14 @@
 package steps;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CheckouPage;
 import pages.LoginPage;
 import pages.ProductActionPage;
+import support.ScreenshotUtils;
 
 public class CheckoutSteps {
 
@@ -58,5 +61,10 @@ public class CheckoutSteps {
     @Then("the order should be successfully placed")
     public void the_order_should_be_successfully_placed() {
         checkouPage.checkSuccess();
+    }
+
+    @After
+    public static void afterScenario(Scenario scenario){
+        ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
 }
