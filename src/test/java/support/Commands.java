@@ -67,4 +67,16 @@ public class Commands extends RunCucumber {
 
     }
 
+    public static void checkCart(By element){
+        try {
+            if (getDriver().findElement(element).isDisplayed()) {
+                System.out.println("An error has ocurred");
+            } else {
+                System.out.println("Item removed from cart");
+            }
+        } catch (Exception error) {
+            System.out.println(error);
+        }
+    }
+
 }
