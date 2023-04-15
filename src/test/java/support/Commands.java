@@ -26,12 +26,12 @@ public class Commands extends RunCucumber {
     public static void clickElement(By element) {
         System.out.println("##############################################");
         try {
-            System.out.println("********* Vai clicar no elemento: " + element);
+            System.out.println("********* Click on element: " + element);
             waitElementBeClickable(element, Duration.ofMillis(10000));
             getDriver().findElement(element).click();
-            System.out.println("********* Clicou no elemento: " + element);
+            System.out.println("********* Clicked on element: " + element);
         } catch (Exception error) {
-            System.out.println("********* Aconteceu um erro ao tentar clicar no elemento: " + element);
+            System.out.println("********* Error on element click: " + element);
             System.out.println(error);
         }
         System.out.println("##############################################");
@@ -40,14 +40,14 @@ public class Commands extends RunCucumber {
     public static void fillFields(By element, String value) {
         System.out.println("##############################################");
         try {
-            System.out.println("********* Vai preencher o campo: " + element);
+            System.out.println("********* Fill field: " + element);
             waitElementBeVisible(element, Duration.ofMillis(10000));
             getDriver().findElement(element).sendKeys(value);
-            System.out.println("********* Preencheu o campo: " + element);
+            System.out.println("********* Field filled: " + element);
             JavascriptExecutor jse = (JavascriptExecutor)getDriver();
             jse.executeScript("window.scrollBy(0,100)", "");
         } catch (Exception error) {
-            System.out.println("********* Aconteceu um erro ao tentar preencher o campo: " + element);
+            System.out.println("********* Error on fill field: " + element);
             System.out.println(error);
         }
         System.out.println("##############################################");
@@ -55,15 +55,14 @@ public class Commands extends RunCucumber {
 
     public static void checkMessage(By element, String expectedMessage) {
         System.out.println("***************************************************");
-        System.out.println("********* Vai validar mensagem: " + expectedMessage);
+        System.out.println("********* Validate Message: " + expectedMessage);
         waitElementBeVisible(element, Duration.ofMillis(2000));
         String actualMessage = getDriver().findElement(element).getText();
 
-        //Quando não der certo, vai quebrar o teste!!!
-        Assert.assertEquals("Erro ao validar mensagens", expectedMessage, actualMessage);
-        //Quando não der certo, vai quebrar o teste!!!
+        Assert.assertEquals("Validate Message Error", expectedMessage, actualMessage);
 
-        System.out.println("********* Validou mensagem: " + expectedMessage);
+
+        System.out.println("********* Message validated: " + expectedMessage);
         System.out.println("***************************************************");
 
     }
