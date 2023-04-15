@@ -32,14 +32,3 @@ Feature: Login
 #      | Name (A to Z)       | name in alphabetical order         | Name (A to Z)       |
 #      | Name (Z to A)       | name in reverse alphabetical order | Name (Z to A)       |
 #
-#  @checkout
-#  Scenario: User checks out and places an order
-#    Given I am logged in to the website
-#    When I add a product to the cart
-#    And I click the cart icon
-#    And I click the checkout button
-#    And I enter the required shipping information
-#    And I click the continue button
-#    And I enter the payment information
-#    And I click the finish button
-#    Then the order should be successfully placed
