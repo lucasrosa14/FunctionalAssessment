@@ -130,7 +130,7 @@ jobs:
   sauceDemoRemoveProduct:
     runs-on: ubuntu-latest
     needs: sauceDemoAddProduct
-    name: sauceDemoAddProduct
+    name: sauceDemoRemoveProduct
     if: ${{ success() }}
 
     steps:
