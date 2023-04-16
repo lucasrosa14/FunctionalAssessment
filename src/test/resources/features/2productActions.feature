@@ -1,7 +1,7 @@
 # language: en
 
 @fullTest
-Feature: Add Product to Cart
+Feature: Add/Remove Product to/from Cart
 
 
   @add-product
