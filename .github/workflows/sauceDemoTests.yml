@@ -128,7 +128,7 @@ jobs:
 
   sauceDemoRemoveProduct:
     runs-on: ubuntu-latest
-    needs: sauceDemoAddProduct
+    needs: sauceDemoLogin
     name: sauceDemoRemoveProduct
     if: ${{ success() }}
 
