@@ -11,7 +11,7 @@ import static support.Utils.*;
 
 public class ProductActionPage extends RunCucumber {
 
-    private final By backToProducts = By.id("back-to-products");
+    private final By backToProducts = By.id("back-to-product");
     private final By addToCart = By.className("btn_inventory");
     private final By removeFromCart = By.className("cart_button");
     private final By cartBadge = By.className("shopping_cart_badge");
@@ -25,7 +25,7 @@ public class ProductActionPage extends RunCucumber {
 
     public void clickOnProduct(){
         clickElement(generateLink());
-        waitElementBeVisible(backToProducts, Duration.ofMillis(10000));
+        waitElementBeVisible(backToProducts, Duration.ofMillis(1000));
     }
 
     public void clickOnAddToCart(){
