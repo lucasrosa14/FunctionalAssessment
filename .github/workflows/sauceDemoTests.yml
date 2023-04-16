@@ -66,7 +66,7 @@ jobs:
           SLACK_USERNAME: FAILURE
 
       - name: Send Slack Notification - Skipped
-        if: ${{ failure() }}
+        if: ${{ skipped() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -138,14 +138,14 @@ jobs:
           SLACK_USERNAME: FAILURE
 
       - name: Send Slack Notification - Skipped
-        if: ${{ failure() }}
+        if: ${{ skipped() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
-          SLACK_MESSAGE: 'Login test was skipped :rotating_light:'
-          SLACK_TITLE: 'Login test was skipped :rotating_light:'
+          SLACK_MESSAGE: 'Add product to cart test was skipped :rotating_light:'
+          SLACK_TITLE: 'Add product to cart test was skipped :rotating_light:'
           SLACK_USERNAME: SKIPPED
 
   sauceDemoRemoveProduct:
@@ -212,7 +212,7 @@ jobs:
           SLACK_USERNAME: FAILURE
 
       - name: Send Slack Notification - Skipped
-        if: ${{ failure() }}
+        if: ${{ skipped() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -284,7 +284,7 @@ jobs:
           SLACK_USERNAME: FAILURE
 
       - name: Send Slack Notification - Skipped
-        if: ${{ failure() }}
+        if: ${{ skipped() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
