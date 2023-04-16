@@ -14,8 +14,13 @@ public class ProductActionSteps {
     LoginPage loginPage = new LoginPage();
     ProductActionPage productActionPage = new ProductActionPage();
 
+    @After
+    public static void afterScenario(Scenario scenario) {
+        ScreenshotUtils.addScreenshotOnScenario(scenario);
+    }
+
     @Given("^I am logged in with username \"([^\"]*)\" and password \"([^\"]*)\"$")
-    public void i_am_logged_in_with_username_and_password(String email, String pass){
+    public void i_am_logged_in_with_username_and_password(String email, String pass) {
         loginPage.accessAplication();
         loginPage.fillEmail(email);
         loginPage.fillPassword(pass);
@@ -26,6 +31,7 @@ public class ProductActionSteps {
     public void i_am_on_the_home_page() {
         productActionPage.onHomePage();
     }
+
     @When("^I click on any product on the homepage$")
     public void i_click_on_any_product_on_the_homepage() {
         productActionPage.clickOnProduct();
@@ -54,11 +60,6 @@ public class ProductActionSteps {
     @Then("the product should be removed from the cart")
     public void the_product_should_be_removed_from_the_cart() {
         productActionPage.checkCartIsEmpty();
-    }
-
-    @After
-    public static void afterScenario(Scenario scenario){
-        ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
 
 }
