@@ -1,4 +1,4 @@
-name: SauceDemoTest
+name: SauceDemoAddProduct
 on:
   pull_request:
     branches: [ main ]
@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: sauceDemoLogin
+        if: ${{ success() }}
+
       - name: Clonar o Projeto
         uses: actions/checkout@v3
 
@@ -29,7 +32,7 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - name: Run Test
-        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
+        run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci -D"cucumber.filter.tags=@add-product"
 
       - name: Gerar relatório
         if: always()
