@@ -43,27 +43,38 @@ jobs:
           name: report-tests
           path: '**/formated-report/'
 
-      - name: Enviar notificação Slack - Sucesso
+      - name: Send Slack Notification - Success
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148767.png?size=48
-          SLACK_MESSAGE: 'Sucesso na execução dos testes de login :white_check_mark:'
-          SLACK_TITLE: 'Sucesso na execução dos testes de login :white_check_mark:'
-          SLACK_USERNAME: SUCESSO
+          SLACK_MESSAGE: 'Success on login test execution :white_check_mark:'
+          SLACK_TITLE: 'Success on login test execution :white_check_mark:'
+          SLACK_USERNAME: SUCCESS
 
-      - name: Enviar notificação Slack - Falha
+      - name: Send Slack Notification - Failure
         if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
-          SLACK_MESSAGE: 'Falha na execução dos testes de login :rotating_light:'
-          SLACK_TITLE: 'Falha na execução dos testes de login :rotating_light:'
-          SLACK_USERNAME: FALHA
+          SLACK_MESSAGE: 'Failure on login test execution :rotating_light:'
+          SLACK_TITLE: 'Failure on login test execution :rotating_light:'
+          SLACK_USERNAME: FAILURE
+
+      - name: Send Slack Notification - Skipped
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
+          SLACK_MESSAGE: 'Login test was skipped :rotating_light:'
+          SLACK_TITLE: 'Login test was skipped :rotating_light:'
+          SLACK_USERNAME: SKIPPED
 
   sauceDemoAddProduct:
     runs-on: ubuntu-latest
@@ -104,16 +115,16 @@ jobs:
           name: report-tests
           path: '**/formated-report/'
 
-      - name: Enviar notificação Slack - Sucesso
+      - name: Send Slack Notification - Success
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148767.png?size=48
-          SLACK_MESSAGE: 'Sucesso na execução dos testes de adicionar produto ao carrinho :white_check_mark:'
-          SLACK_TITLE: 'Sucesso na execução dos testes de adicionar produto ao carrinho :white_check_mark:'
-          SLACK_USERNAME: SUCESSO
+          SLACK_MESSAGE: 'Success on add product to cart test execution :white_check_mark:'
+          SLACK_TITLE: 'Success on add product to cart test execution :white_check_mark:'
+          SLACK_USERNAME: SUCCESS
 
       - name: Enviar notificação Slack - Falha
         if: ${{ failure() }}
@@ -122,10 +133,20 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
-          SLACK_MESSAGE: 'Falha na execução dos testes de adicionar produto ao carrinho :rotating_light:'
-          SLACK_TITLE: 'Falha na execução dos testes de adicionar produto ao carrinho :rotating_light:'
-          SLACK_USERNAME: FALHA
+          SLACK_MESSAGE: 'Failure on add product to cart test execution :rotating_light:'
+          SLACK_TITLE: 'Failure on add product to cart test execution :rotating_light:'
+          SLACK_USERNAME: FAILURE
 
+      - name: Send Slack Notification - Skipped
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
+          SLACK_MESSAGE: 'Login test was skipped :rotating_light:'
+          SLACK_TITLE: 'Login test was skipped :rotating_light:'
+          SLACK_USERNAME: SKIPPED
 
   sauceDemoRemoveProduct:
     runs-on: ubuntu-latest
@@ -168,27 +189,38 @@ jobs:
           name: report-tests
           path: '**/formated-report/'
 
-      - name: Enviar notificação Slack - Sucesso
+      - name: Send Slack Notification - Success
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148767.png?size=48
-          SLACK_MESSAGE: 'Sucesso na execução dos testes de remover produto do carrinho :white_check_mark:'
-          SLACK_TITLE: 'Sucesso na execução dos testes de remover produto do carrinho :white_check_mark:'
-          SLACK_USERNAME: SUCESSO
+          SLACK_MESSAGE: 'Success on remove product from cart test execution :white_check_mark:'
+          SLACK_TITLE: 'Success on remove product from cart test execution :white_check_mark:'
+          SLACK_USERNAME: SUCCESS
 
-      - name: Enviar notificação Slack - Falha
+      - name: Send Slack Notification - Failure
         if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
-          SLACK_MESSAGE: 'Falha na execução dos testes de remover produto do carrinho :rotating_light:'
-          SLACK_TITLE: 'Falha na execução dos testes de remover produto do carrinho :rotating_light:'
-          SLACK_USERNAME: FALHA
+          SLACK_MESSAGE: 'Failure on remove product from cart test execution :rotating_light:'
+          SLACK_TITLE: 'Failure on remove product from cart test execution :rotating_light:'
+          SLACK_USERNAME: FAILURE
+
+      - name: Send Slack Notification - Skipped
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
+          SLACK_MESSAGE: 'Remove Item test was skipped :rotating_light:'
+          SLACK_TITLE: 'Remove Item test was skipped :rotating_light:'
+          SLACK_USERNAME: SKIPPED
 
   sauceDemoCheckout:
     runs-on: ubuntu-latest
@@ -229,24 +261,35 @@ jobs:
           name: report-tests
           path: '**/formated-report/'
 
-      - name: Enviar notificação Slack - Sucesso
+      - name: Send Slack Notification - Success
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://cdn-icons-png.flaticon.com/512/148/148767.png?size=48
-          SLACK_MESSAGE: 'Sucesso na execução dos testes de checkout :white_check_mark:'
-          SLACK_TITLE: 'Sucesso na execução dos testes de checkout :white_check_mark:'
-          SLACK_USERNAME: SUCESSO
+          SLACK_MESSAGE: 'Success on checkout test execution :white_check_mark:'
+          SLACK_TITLE: 'Success on checkout test execution :white_check_mark:'
+          SLACK_USERNAME: SUCCESS
 
-      - name: Enviar notificação Slack - Falha
+      - name: Send Slack Notification - Failure
         if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
-          SLACK_MESSAGE: 'Falha na execução dos testes de checkout :rotating_light:'
-          SLACK_TITLE: 'Falha na execução dos testes de checkout :rotating_light:'
-          SLACK_USERNAME: FALHA
+          SLACK_MESSAGE: 'Failure on checkout test execution :rotating_light:'
+          SLACK_TITLE: 'Failure on checkout test execution :rotating_light:'
+          SLACK_USERNAME: FAILURE
+
+      - name: Send Slack Notification - Skipped
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKQobWv5KNc4Tt0mNS5tWpHojJb5q2y_glZax8QwLe6g&s?size=48
+          SLACK_MESSAGE: 'Checkout test was skipped :rotating_light:'
+          SLACK_TITLE: 'Checkout test was skipped :rotating_light:'
+          SLACK_USERNAME: SKIPPED
