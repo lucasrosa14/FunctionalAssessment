@@ -65,7 +65,7 @@ jobs:
           SLACK_TITLE: 'Falha na execução dos testes :rotating_light:'
           SLACK_USERNAME: FALHA
 
-    sauceDemoAddProduct:
+  sauceDemoAddProduct:
       runs-on: ubuntu-latest
       needs: sauceDemoLogin
       steps:
