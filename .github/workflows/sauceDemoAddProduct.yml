@@ -6,10 +6,8 @@ on:
 jobs:
   RunTest:
     runs-on: ubuntu-latest
-
+    needs: sauceDemoLogin
     steps:
-      - name: sauceDemoLogin
-        if: ${{ success() }}
 
       - name: Clonar o Projeto
         uses: actions/checkout@v3
