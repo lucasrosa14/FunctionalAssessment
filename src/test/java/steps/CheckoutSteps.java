@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -63,8 +64,8 @@ public class CheckoutSteps {
         checkouPage.checkSuccess();
     }
 
-    @After
-    public static void afterScenario(Scenario scenario){
+    @AfterStep
+    public static void afterStep(Scenario scenario){
         ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
 }

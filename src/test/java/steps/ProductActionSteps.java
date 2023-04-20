@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,11 +14,6 @@ public class ProductActionSteps {
 
     LoginPage loginPage = new LoginPage();
     ProductActionPage productActionPage = new ProductActionPage();
-
-    @After
-    public static void afterScenario(Scenario scenario) {
-        ScreenshotUtils.addScreenshotOnScenario(scenario);
-    }
 
     @Given("^I am logged in with username \"([^\"]*)\" and password \"([^\"]*)\"$")
     public void i_am_logged_in_with_username_and_password(String email, String pass) {
@@ -60,6 +56,11 @@ public class ProductActionSteps {
     @Then("the product should be removed from the cart")
     public void the_product_should_be_removed_from_the_cart() {
         productActionPage.checkCartIsEmpty();
+    }
+
+    @AfterStep
+    public static void afterStep(Scenario scenario){
+        ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
 
 }

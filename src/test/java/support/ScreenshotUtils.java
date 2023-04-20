@@ -16,9 +16,12 @@ public class ScreenshotUtils {
         System.out.println("Tag: " + scenario.getSourceTagNames());
         System.out.println("===========================");
 
-        if(scenario.isFailed()) {
-            byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "Error");
-        }
+        byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+        scenario.attach(screenshot, "image/png", scenario.getName());
+
+//        if(scenario.isFailed()) {
+//
+//        }
     }
+
 }
