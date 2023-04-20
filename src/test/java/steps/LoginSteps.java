@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,8 +33,13 @@ public class LoginSteps {
         loginPage.checkLoginSuccess();
     }
 
-    @After
-    public static void afterScenario(Scenario scenario){
+//    @After
+//    public static void afterScenario(Scenario scenario){
+//        ScreenshotUtils.addScreenshotOnScenario(scenario);
+//    }
+
+    @AfterStep
+    public static void afterStep(Scenario scenario){
         ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
 }
